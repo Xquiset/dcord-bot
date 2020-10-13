@@ -1,0 +1,23 @@
+{
+  "name": "dcord-bot",
+  "version": "1.0.0",
+  "description": "Funny discord bot to mess with our friends",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xquiset/dcord-bot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "\"Xquiset \\ <sam@samleighton.us\\> (https://github.com/Xquiset)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Xquiset/dcord-bot/issues"
+  },
+  "homepage": "https://github.com/Xquiset/dcord-bot#readme"
+}
