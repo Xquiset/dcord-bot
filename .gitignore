@@ -107,4 +107,4 @@ dist
 .node_modules/
 
 # Config file
-./config.json
+config.json
