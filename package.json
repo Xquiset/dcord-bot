@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Xquiset/dcord-bot/issues"
   },
-  "homepage": "https://github.com/Xquiset/dcord-bot#readme"
+  "homepage": "https://github.com/Xquiset/dcord-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  }
 }
