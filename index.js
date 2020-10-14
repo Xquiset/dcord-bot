@@ -13,7 +13,8 @@ client.on("voiceStateUpdate", async function(userBefore, userAfter) {
             server.channels.cache.forEach((channel) => {
                 if (channel instanceof discord.TextChannel) {
                     if (channel.name === "general") {
-                        channel.send("This is general chat!");
+                        const date = new Date();
+                        channel.send(date.toLocaleTimeString() + " : This is general chat!");
                     }
                 }
             });
