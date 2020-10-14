@@ -5,7 +5,7 @@ const config = require("./config.json");
 const client = new discord.Client();
 const prefix = config.prefix;
 
-client.on("voiceStateUpdate", async function(userBefore, userAfter) {
+/* client.on("voiceStateUpdate", async function(userBefore, userAfter) {
     const displayName = userAfter.member.displayName;
 
     if ((displayName === "Xquiset" || displayName === "Wambo") && userAfter.member.voice.channel) {
@@ -19,6 +19,21 @@ client.on("voiceStateUpdate", async function(userBefore, userAfter) {
                 }
             });
         });
+    }
+}); */
+
+client.on("typingStart", async function(channel, user) {
+    const username = user.username;
+    const { name, guild } = await channel.fetch();
+    const emojis = ["🤟", "🌶️", "🎯", "🦝"];
+
+    if (name === "general") {
+        if (username === "Wambo" || username === "Xquiset") {
+            channel.send("Poggers").then((message) => {
+                const index = Math.floor(Math.random() * emojis.length);
+                message.react(emojis[index]);
+            });
+        }
     }
 });
 
