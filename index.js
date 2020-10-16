@@ -1,10 +1,11 @@
+#!/usr/bin/env nodejs
+
 const discord = require("discord.js");
 const ytdl = require('ytdl-core');
 const config = require("./config.json");
 
 // Create a new discord client for our bot
 const client = new discord.Client();
-const prefix = config.prefix;
 
 // When the bot is ready to be interacted with
 // set its status to invisible
@@ -16,13 +17,15 @@ client.on('ready', () => {
 client.on("voiceStateUpdate", function(oldState, newState) {
     // Grab voice channel object of member who triggered state change
     const joinedChannel = newState.member.voice.channel;
+    const channelName = joinedChannel.name != null ? joinedChannel.name : "";
+    const username = newState.member.user.username;
 
     // Check to ensure the member is in a voice channel
-    if (joinedChannel) {
+    if (joinedChannel && (username === "EmmaW4tson" || username === "b nob")) {
         // Ensure that the only changed stated is that of the connection
         // a.k.a someone just joined the call
         if (oldState.deaf === newState.deaf && oldState.mute === newState.mute && oldState.streaming === newState.streaming) {
-            if (joinedChannel.name === "General") {
+            if (channelName === "General" || channelName === "Throne Room" && joinedChannel.joinable) {
                 joinedChannel.join().then(async(connection) => {
                     const dispatcher = connection.play(await ytdl('https://www.youtube.com/watch?v=qFchpvKpYm0', { quality: 'highestaudio' }));
 
