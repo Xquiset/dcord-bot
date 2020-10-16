@@ -19,6 +19,7 @@ client.on("voiceStateUpdate", function(oldState, newState) {
     const joinedChannel = newState.member.voice.channel;
     const channelName = joinedChannel != null ? joinedChannel.name : "";
     const username = newState.member.user.username;
+    console.log(username);
 
     // Check to ensure the member is in a voice channel
     if (joinedChannel && (username === "EmmaW4tson" || username === "b nob")) {
