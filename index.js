@@ -24,7 +24,7 @@ client.on("typingStart", async function(channel, user) {
     // Check if guild name is = general
     if (name === "dank-overlords-only") {
         // Check if users are the desired target
-        if (username === "Wambo" || username === "Xquiset") {
+        if (username === "Wambo" || username === "Xquiset" || username === "EmmaW4tson" || username === "b nob") {
             // Send a message to the text channel the user started to type in
             // then grab a random emoji from the emojis array
             channel.send("Poggers").then((message) => {
