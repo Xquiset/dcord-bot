@@ -21,7 +21,7 @@ client.on("voiceStateUpdate", function(oldState, newState) {
     const username = newState.member.user.username;
 
     // Check to ensure the member is in a voice channel
-    if (joinedChannel && (username === "EmmaW4tson" || username === "b nob")) {
+    if (joinedChannel && (username === "EmmaW4tson" || username === "b nob" || username === "Xquiset")) {
         // Ensure that the only changed stated is that of the connection
         // a.k.a someone just joined the call
         if (oldState.deaf === newState.deaf && oldState.mute === newState.mute && oldState.streaming === newState.streaming) {
