@@ -17,7 +17,7 @@ client.on('ready', () => {
 client.on("voiceStateUpdate", function(oldState, newState) {
     // Grab voice channel object of member who triggered state change
     const joinedChannel = newState.member.voice.channel;
-    const channelName = joinedChannel.name != null ? joinedChannel.name : "";
+    const channelName = joinedChannel != null ? joinedChannel.name : "";
     const username = newState.member.user.username;
 
     // Check to ensure the member is in a voice channel
