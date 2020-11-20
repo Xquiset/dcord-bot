@@ -3,7 +3,17 @@
 const discord = require("discord.js");
 const ytdl = require('ytdl-core');
 const config = require("./config.json");
-const targets = ["Wambo", "Xquiset", "EmmaW4tson", "b nob"];
+const ytdl_options = { quality: 'highestaudio' };
+const targets = {
+    // iDubbz What are you fucking gay
+    "Wambo": ytdl('https://www.youtube.com/watch?v=CsUtPG5Y6tg', ytdl_options),
+    // Rick and Morty My man
+    "Xquiset": ytdl('https://www.youtube.com/watch?v=KpcmfjFN8OI', ytdl_options),
+    // Obi Wan Hello There
+    "EmmaW4tson": ytdl('https://www.youtube.com/watch?v=eaEMSKzqGAg', ytdl_options),
+    // Sponge Bob My Leg
+    "b nob": ytdl('https://youtu.be/ikmRFcUyfMk?t=4', ytdl_options)
+};
 
 // Create a new discord client for our bot
 const client = new discord.Client();
@@ -46,13 +56,13 @@ client.on("voiceStateUpdate", function(oldState, newState) {
     const username = newState.member.user.username;
 
     // Check to ensure the member is in a voice channel
-    if (joinedChannel && (username === "EmmaW4tson" || username === "b nob")) {
+    if (joinedChannel && Object.keys().includes(username)) {
         // Ensure that the only changed stated is that of the connection
         // a.k.a someone just joined the call
         if (oldState.deaf === newState.deaf && oldState.mute === newState.mute && oldState.streaming === newState.streaming) {
             if (channelName === "General" || channelName === "Throne Room" && joinedChannel.joinable) {
                 joinedChannel.join().then(async(connection) => {
-                    const dispatcher = connection.play(await ytdl('https://www.youtube.com/watch?v=qFchpvKpYm0', { quality: 'highestaudio' }));
+                    const dispatcher = connection.play(targets[username]);
 
                     dispatcher.on('finish', () => {
                         joinedChannel.leave();
