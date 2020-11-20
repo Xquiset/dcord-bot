@@ -1,18 +1,16 @@
 #!/usr/bin/env nodejs
 
 const discord = require("discord.js");
+const fs = require('fs');
 const ytdl = require('ytdl-core');
 const config = require("./config.json");
-const ytdl_options = { quality: 'highestaudio' };
 const targets = {
     // iDubbz What are you fucking gay
-    "Wambo": ytdl('https://www.youtube.com/watch?v=CsUtPG5Y6tg', ytdl_options),
+    "Wambo": { media: 'https://www.youtube.com/watch?v=CsUtPG5Y6tg', options: { filter: 'audioonly', quality: 'highestaudio' } },
     // Rick and Morty My man
-    "Xquiset": ytdl('https://www.youtube.com/watch?v=KpcmfjFN8OI', ytdl_options),
-    // Obi Wan Hello There
-    "EmmaW4tson": ytdl('https://www.youtube.com/watch?v=eaEMSKzqGAg', ytdl_options),
+    "Xquiset": { media: 'https://www.youtube.com/watch?v=KpcmfjFN8OI', options: { filter: 'audioonly', quality: 'highestaudio' } },
     // Sponge Bob My Leg
-    "b nob": ytdl('https://youtu.be/ikmRFcUyfMk?t=4', ytdl_options)
+    "b nob": { media: 'https://www.youtube.com/watch?v=ikmRFcUyfMk', options: { filter: 'audioonly', quality: 'highestaudio' } }
 };
 
 // Create a new discord client for our bot
@@ -24,7 +22,7 @@ client.on('ready', () => {
     client.user.setStatus('invisible');
 });
 
-client.on("typingStart", async function(channel, user) {
+/* client.on("typingStart", async function(channel, user) {
     // Grab the username from the event state update object
     const username = user.username;
     // Destructure the object returned by fetch to grab name, and guild object of channel
@@ -46,7 +44,7 @@ client.on("typingStart", async function(channel, user) {
             });
         }
     }
-});
+}); */
 
 // Triggerd by any voice state change i.e joine/leave channel, mute, deafen
 client.on("voiceStateUpdate", function(oldState, newState) {
@@ -61,8 +59,10 @@ client.on("voiceStateUpdate", function(oldState, newState) {
         // a.k.a someone just joined the call
         if (oldState.deaf === newState.deaf && oldState.mute === newState.mute && oldState.streaming === newState.streaming) {
             if (channelName === "General" || channelName === "Throne Room" && joinedChannel.joinable) {
+                let media_stream = ytdl(targets[username].media, targets[username].options);
+
                 joinedChannel.join().then(async(connection) => {
-                    const dispatcher = connection.play(targets[username]);
+                    const dispatcher = connection.play(media_stream, { volume: 1 });
 
                     dispatcher.on('finish', () => {
                         joinedChannel.leave();
