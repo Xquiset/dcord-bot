@@ -35,7 +35,7 @@ client.on("typingStart", async function(channel, user) {
     // Check if guild name is = general
     if (name === "dank-overlords-only") {
         // Check if users are the desired target
-        if (targets.includes(username)) {
+        if (Object.keys(targets).includes(username)) {
             // Send a message to the text channel the user started to type in
             // then grab a random emoji from the emojis array
             channel.send("Poggers").then((message) => {
@@ -56,7 +56,7 @@ client.on("voiceStateUpdate", function(oldState, newState) {
     const username = newState.member.user.username;
 
     // Check to ensure the member is in a voice channel
-    if (joinedChannel && Object.keys().includes(username)) {
+    if (joinedChannel && Object.keys(targets).includes(username)) {
         // Ensure that the only changed stated is that of the connection
         // a.k.a someone just joined the call
         if (oldState.deaf === newState.deaf && oldState.mute === newState.mute && oldState.streaming === newState.streaming) {
