@@ -1,16 +1,16 @@
 #!/usr/bin/env nodejs
 
 const discord = require("discord.js");
-const fs = require('fs');
-const ytdl = require('ytdl-core');
+//const fs = require('fs');
+//const ytdl = require('ytdl-core');
 const config = require("./config.json");
 const targets = {
     // iDubbz What are you fucking gay
-    "Wambo": { media: '/var/www/html/dcord-bot/assets/iDubbz.mp3', options: { bitrate: 'audio', seek: 1 } },
+    "Wambo": { media: './assets/iDubbbz.mp3', options: { bitrate: 'auto', seek: 0.9, volume: 1 } },
     // Rick and Morty My man
-    "Xquiset": { media: '/var/www/html/dcord-bot/assets/My Leg.mp3', options: { bitrate: 'audio', seek: 4 } },
+    "Xquiset": { media: './assets/My Man.mp3', options: { bitrate: 'auto', seek: 0, volume: 1 } },
     // Sponge Bob My Leg
-    "b nob": { media: '/var/www/html/dcord-bot/assets/My Leg.mp3', options: { bitrate: 'audio', seek: 4 } }
+    "b nob": { media: './assets/My Leg.mp3', options: { bitrate: 'auto', seek: 4.5, volume: 1 } }
 };
 
 // Create a new discord client for our bot
@@ -18,9 +18,9 @@ const client = new discord.Client();
 
 // When the bot is ready to be interacted with
 // set its status to invisible
-client.on('ready', () => {
-    client.user.setStatus('invisible');
-});
+// client.on('ready', () => {
+//     client.user.setStatus('invisible');
+// });
 
 /* client.on("typingStart", async function(channel, user) {
     // Grab the username from the event state update object
