@@ -8,7 +8,7 @@ const targets = {
     // iDubbz What are you fucking gay
     "Wambo": { media: '/var/www/html/dcord-bot/assets/iDubbbz.mp3', options: { bitrate: 'auto', seek: 0.9, volume: 1 } },
     // Rick and Morty My man
-    "Xquiset": { media: '/var/www/html/dcord-bot/assets/my_man.mp3', options: { bitrate: 'auto', seek: 0, volume: 1 } },
+    "Xquiset": { media: '/var/www/html/dcord-bot/assets/iDubbbz.mp3' /*'/var/www/html/dcord-bot/assets/my_man.mp3'*/ , options: { bitrate: 'auto', seek: 0, volume: 1 } },
     // Sponge Bob My Leg
     "b nob": { media: '/var/www/html/dcord-bot/assets/my_leg.mp3', options: { bitrate: 'auto', seek: 4.5, volume: 1 } }
 };
