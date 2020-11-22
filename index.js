@@ -8,9 +8,9 @@ const targets = {
     // iDubbz What are you fucking gay
     "Wambo": { media: './assets/iDubbbz.mp3', options: { bitrate: 'auto', seek: 0.9, volume: 1 } },
     // Rick and Morty My man
-    "Xquiset": { media: './assets/My Man.mp3', options: { bitrate: 'auto', seek: 0, volume: 1 } },
+    "Xquiset": { media: './assets/my_man.mp3', options: { bitrate: 'auto', seek: 0, volume: 1 } },
     // Sponge Bob My Leg
-    "b nob": { media: './assets/My Leg.mp3', options: { bitrate: 'auto', seek: 4.5, volume: 1 } }
+    "b nob": { media: './assets/my_leg.mp3', options: { bitrate: 'auto', seek: 4.5, volume: 1 } }
 };
 
 // Create a new discord client for our bot
