@@ -6,11 +6,11 @@ const ytdl = require('ytdl-core');
 const config = require("./config.json");
 const targets = {
     // iDubbz What are you fucking gay
-    "Wambo": { media: 'https://www.youtube.com/watch?v=CsUtPG5Y6tg', options: { filter: 'audioonly', quality: 'highestaudio' } },
+    "Wambo": { media: 'assets/iDubbz.mp3', options: { bitrate: 'audio', seek: 1 } },
     // Rick and Morty My man
-    "Xquiset": { media: 'https://www.youtube.com/watch?v=KpcmfjFN8OI', options: { filter: 'audioonly', quality: 'highestaudio' } },
+    "Xquiset": { media: 'assets/My Leg.mp3', options: { bitrate: 'audio', seek: 4 } },
     // Sponge Bob My Leg
-    "b nob": { media: 'https://www.youtube.com/watch?v=ikmRFcUyfMk', options: { filter: 'audioonly', quality: 'highestaudio' } }
+    "b nob": { media: 'assets/My Leg.mp3', options: { bitrate: 'audio', seek: 4 } }
 };
 
 // Create a new discord client for our bot
@@ -59,10 +59,11 @@ client.on("voiceStateUpdate", function(oldState, newState) {
         // a.k.a someone just joined the call
         if (oldState.deaf === newState.deaf && oldState.mute === newState.mute && oldState.streaming === newState.streaming) {
             if (channelName === "General" || channelName === "Throne Room" && joinedChannel.joinable) {
-                let media_stream = ytdl(targets[username].media, targets[username].options);
+                //let media_stream = ytdl(targets[username].media, targets[username].options);
 
                 joinedChannel.join().then(async(connection) => {
-                    const dispatcher = connection.play(media_stream, { volume: 1 });
+                    //const dispatcher = connection.play(media_stream, { volume: 1 });
+                    const dispatcher = connection.play(targets[username].media, targets[username].options);
 
                     dispatcher.on('finish', () => {
                         joinedChannel.leave();
