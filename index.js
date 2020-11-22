@@ -6,11 +6,11 @@ const ytdl = require('ytdl-core');
 const config = require("./config.json");
 const targets = {
     // iDubbz What are you fucking gay
-    "Wambo": { media: 'assets/iDubbz.mp3', options: { bitrate: 'audio', seek: 1 } },
+    "Wambo": { media: '/var/www/html/dcord-bot/assets/iDubbz.mp3', options: { bitrate: 'audio', seek: 1 } },
     // Rick and Morty My man
-    "Xquiset": { media: 'assets/My Leg.mp3', options: { bitrate: 'audio', seek: 4 } },
+    "Xquiset": { media: '/var/www/html/dcord-bot/assets/My Leg.mp3', options: { bitrate: 'audio', seek: 4 } },
     // Sponge Bob My Leg
-    "b nob": { media: 'assets/My Leg.mp3', options: { bitrate: 'audio', seek: 4 } }
+    "b nob": { media: '/var/www/html/dcord-bot/assets/My Leg.mp3', options: { bitrate: 'audio', seek: 4 } }
 };
 
 // Create a new discord client for our bot
