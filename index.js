@@ -6,11 +6,11 @@ const discord = require("discord.js");
 const config = require("./config.json");
 const targets = {
     // iDubbz What are you fucking gay
-    "Wambo": { media: '/var/www/html/dcord-bot/assets/iDubbbz.mp3', options: { bitrate: 'auto', seek: 0.9, volume: 1 } },
+    "Wambo": { media: './assets/iDubbbz.mp3', options: { bitrate: 'auto', seek: 0.9, volume: 1 } },
     // Rick and Morty My man
-    "Xquiset": { media: '/var/www/html/dcord-bot/assets/my_man.mp3', options: { bitrate: 'auto', seek: 0, volume: 1 } },
+    "Xquiset": { media: './assets/my_man.mp3', options: { bitrate: 'auto', seek: 0, volume: 1 } },
     // Sponge Bob My Leg
-    "b nob": { media: '/var/www/html/dcord-bot/assets/my_leg.mp3', options: { bitrate: 'auto', seek: 4.5, volume: 1 } }
+    "b nob": { media: './assets/my_leg.mp3', options: { bitrate: 'auto', seek: 4.5, volume: 1 } }
 };
 
 // Create a new discord client for our bot
@@ -54,11 +54,11 @@ client.on("voiceStateUpdate", function(oldState, newState) {
     const username = newState.member.user.username;
 
     // Check to ensure the member is in a voice channel
-    if (joinedChannel && Object.keys(targets).includes(username)) {
+    if (joinedChannel != null && Object.keys(targets).includes(username)) {
         // Ensure that the only changed stated is that of the connection
         // a.k.a someone just joined the call
         if (oldState.deaf === newState.deaf && oldState.mute === newState.mute && oldState.streaming === newState.streaming) {
-            if (channelName === "General" || channelName === "Throne Room" && joinedChannel.joinable) {
+            if (channelName === "General" || channelName === "Bhrone bRoom" && joinedChannel.joinable) {
                 //let media_stream = ytdl(targets[username].media, targets[username].options);
 
                 joinedChannel.join().then(async(connection) => {
